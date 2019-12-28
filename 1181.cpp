@@ -27,6 +27,11 @@ void merge(int sorted[], int idx[], char list[][51], int left, int mid, int righ
             if (strcmp(list[idx[i]], list[idx[j]]) > 0) {
                 sorted[k++] = idx[j++];
             }
+            else if (strcmp(list[idx[i]], list[idx[j]]) == 0) {
+                sorted[k++] = idx[i++];
+                sorted[k++] = -1;
+                j++;
+            }
             else {
                 sorted[k++] = idx[i++];
             }
@@ -94,31 +99,6 @@ int main()
 
     for (int i = 0; i < N; i++)
     {
-
-        if (i == 0)
-        {
-            if (b[i] == 0)
-                printf("%s\n", c[b[i]]);
-            else
-            {
-                int k;
-                for (k = 0; k < N; k++)
-                {
-                    if (b[k] == b[0] - 1)
-                        break;
-                }
-                if (strcmp(c[b[i]], c[b[k]]) != 0)
-                {
-                    printf("%s\n", c[b[i]]);
-                }
-            }
-        }
-        else
-        {
-            if (strcmp(c[b[i]], c[b[i - 1]]) != 0)
-            {
-                printf("%s\n", c[b[i]]);
-            }
-        }
+        b[i] != -1 ? printf("%s\n", c[b[i]]) : true;
     }
 }
