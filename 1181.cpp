@@ -19,9 +19,17 @@ void merge(int sorted[], int idx[], char list[][51], int left, int mid, int righ
 
     while (i <= mid && j <= right)
     {
-        if (strlen(list[idx[i]]) <= strlen(list[idx[j]]))
+        if (strlen(list[idx[i]]) < strlen(list[idx[j]]))
         {
             sorted[k++] = idx[i++];
+        }
+        else if (strlen(list[idx[i]]) == strlen(list[idx[j]])) {
+            if (strcmp(list[idx[i]], list[idx[j]]) > 0) {
+                sorted[k++] = idx[j++];
+            }
+            else {
+                sorted[k++] = idx[i++];
+            }
         }
         else
         {
