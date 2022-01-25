@@ -2,7 +2,7 @@ class Solution:
     #init ver
     def lengthOfLongestSubstring(self, s: str) -> int:
         strl = len(s)
-        max = 0
+        res = 0
         hash = list(False for i in range(128)) #ASCII
 
         
@@ -13,30 +13,26 @@ class Solution:
                 j += 1
                 if i+j > strl-1:
                     break
-            if max < j : max = j
+            if res < j : res = j
             
             hash = list(False for i in range(128))
-        return max
+        return res
     
     # Sliding Window Algorithm
+    # max 함수 사용시 if문 비교보다 런타임 증가
     def lengthOfLongestSubstring(self, s: str) -> int:
         left = right = 0
         hash = list(0 for i in range(128)) #ASCII
-        max = 0
+        res = 0
 
         while right < len(s):
             hash[ord(s[right])] += 1
 
             while hash[ord(s[right])] > 1:
-                if max < right-left:
-                    max = right-left
-
+                res = max(res, right-left)
                 hash[ord(s[left])] -= 1
                 left += 1
 
             right += 1
 
-
-        if max < right-left:
-            max = right-left
-        return max
+        return max(res, right-left)
