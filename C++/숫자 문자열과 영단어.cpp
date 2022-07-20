@@ -12,7 +12,7 @@ int solution(string s) {
     int length = s.length();
     int answer = 0;
     string str = "00";
-    
+
     while (i < length)
     {
         int n = (int)s[i] - '0';
@@ -22,7 +22,9 @@ int solution(string s) {
         }
         else
         {
-            n = strToInt[s.substr(i, 2)];
+            str[0] = s[i];
+            str[1] = s[i+1];
+            n = strToInt[str];
             i += strCount[n];
         }
         answer = answer * 10 + n;
