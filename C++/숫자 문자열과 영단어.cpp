@@ -11,7 +11,8 @@ int solution(string s) {
     int i = 0;
     int length = s.length();
     int answer = 0;
-
+    string str = "00";
+    
     while (i < length)
     {
         int n = (int)s[i] - '0';
