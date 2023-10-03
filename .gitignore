@@ -1,0 +1,10 @@
+# Ignore all files
+*
+
+# Allow directories
+!*/
+
+# Allow .cpp and .py files
+!/**/*.cpp
+!/**/*.py
+!/**/*.ipynb
