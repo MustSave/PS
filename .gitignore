@@ -4,6 +4,9 @@
 # Allow directories
 !*/
 
+# ignore out dir
+out/*
+
 # Allow .cpp and .py files
 !/**/*.cpp
 !/**/*.py
